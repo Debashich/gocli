@@ -9,7 +9,7 @@ A lightweight and interactive CLI Todo Manager built with Go, featuring JSON per
 
 ## Preview
 
-![Demo Screenshot](assets/screenshot.png)
+<img width="1920" height="1019" alt="Screenshot from 2026-05-24 19-23-41" src="https://github.com/user-attachments/assets/33b544ae-035b-473e-96ff-6af12c07d86f" />
 
 ---
 ## Features
