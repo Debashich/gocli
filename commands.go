@@ -116,21 +116,27 @@ func (cf *cmdFlags) RunREPL(todos *Todos) {
 				continue
 			}
 			idx, _ := strconv.Atoi(args[0])
-			todos.Toggle(idx)
+			if err := todos.Toggle(idx); err != nil {
+				fmt.Println("Error:", err)
+			}
 		case "/del":
 			if len(args) == 0 {
 				fmt.Println("Usage: /del <index>")
 				continue
 			}
 			idx, _ := strconv.Atoi(args[0])
-			todos.Delete(idx)
+			if err := todos.Delete(idx); err != nil {
+				fmt.Println("Error:", err)
+			}
 		case "/edit":
 			if len(args) < 2 {
 				fmt.Println("Usage: /edit <index> <new text>")
 				continue
 			}
 			idx, _ := strconv.Atoi(args[0])
-			todos.Edit(idx, strings.Join(args[1:], " "))
+			if err := todos.Edit(idx, strings.Join(args[1:], " ")); err != nil {
+				fmt.Println("Error:", err)
+			}
 		default:
 			fmt.Printf("Unknown command: %s (Try /help)\n", command)
 		}
