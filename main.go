@@ -5,6 +5,7 @@ import (
 )
 
 func main(){
+	PrintLogo()
 	storage := NewStorage[Todo]("todos.json")
 	data, err := storage.Load()
 	if err != nil {
