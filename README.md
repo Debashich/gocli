@@ -1,50 +1,52 @@
-# gocli Todo Manager
+# KAMI CLI Todo Manager
 
----
 ![CI](https://img.shields.io/github/actions/workflow/status/Debashich/goCLI/go.yaml?label=CI&style=for-the-badge&logo=github)
-![Go](https://img.shields.io/badge/Go-1.22-blue?style=for-the-badge&logo=go)
+![Go](https://img.shields.io/badge/Go-1.22.6-blue?style=for-the-badge&logo=go)
 
-
-A Golang based CLI todo manager with JSON persistence and a CI/CD pipeline using GitHub Actions for automated build, linting, and testing.
+A lightweight and interactive CLI Todo Manager built with Go, featuring JSON persistence, REPL support, and automated CI/CD pipelines using GitHub Actions.
 
 ---
 
+## Preview
+
+![Demo Screenshot](assets/screenshot.png)
+
+---
 ## Features
 
-- **Persistence**: Data is saved to `todos.json` automatically  
-- **Generics**: Uses a generic storage engine for easy extension  
-- **Table View**: Clean terminal output using `aquasecurity/table`  
-- **Full CRUD**: Add, Edit, Toggle, and Delete tasks  
-
+- Interactive REPL mode with slash commands
+- Full CRUD task management
+- Persistent JSON-based storage
+- Clean terminal table rendering
+- Lightweight and minimal
+- CI/CD integration with GitHub Actions
 ---
+## Tech Stack
 
-## CI/CD
-
-This project uses **GitHub Actions**:
-
-- Automated builds on every push  
-- Code linting using `golangci-lint`  
-- Running tests  
-- Ensuring consistent code quality  
-
+- **Go (Golang)** - Core application development
+- **Go Modules** - Dependency management
+- **`aquasecurity/table`** - Terminal table rendering
+- **JSON (`todos.json`)** - Persistent local storage
+- **GitHub Actions** - CI/CD automation
+- **`golangci-lint`** - Linting and static analysis
 ---
 
 ## Installation
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Debashich/goCLI.git
-cd goCLI
-````
+git clone https://github.com/Debashich/Kami.git
+cd Kami
+```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 go mod tidy
 ```
 
-### 3. Build the binary
+### 3. Build the Binary
 
 ```bash
 go build -o todo
@@ -52,9 +54,9 @@ go build -o todo
 
 ---
 
-## Usage
+## Quick Start
 
-Run using the compiled binary:
+### 1. Run the Application
 
 ```bash
 ./todo
@@ -68,61 +70,72 @@ go run .
 
 ---
 
-## Commands
+# Interactive REPL Mode
 
-### Add a new task
+### Available Commands
+
+| Command | Description |
+|---|---|
+| `/add Finish project` | Add a new task |
+| `/list` | Display all tasks |
+| `/toggle 0` | Toggle task completion |
+| `/edit 0 Updated text` | Edit a task |
+| `/del 0` | Delete a task |
+| `/help` | Show help menu |
+| `/exit` | Exit the REPL |
+
+---
+
+# Flag Mode
+
+Run commands directly using CLI flags.
+
+### Add a Task
 
 ```bash
 ./todo -add "Finish Go project"
 ```
 
----
-
-### List all tasks
+### List Tasks
 
 ```bash
 ./todo -list
 ```
 
----
-
-### Toggle completion status
+### Toggle Completion
 
 ```bash
 ./todo -toggle 0
 ```
 
----
-
-### Edit a task
-
-Format:
-
-```bash
-index:new text
-```
-
-Example:
+### Edit a Task
 
 ```bash
 ./todo -edit "0:Complete the Go CLI tutorial"
 ```
 
----
-
-### Delete a task
+### Delete a Task
 
 ```bash
 ./todo -del 0
 ```
 
----
-
-## Help
+### Help
 
 ```bash
 ./todo -h
 ```
+
+---
+
+## CI/CD Pipeline
+
+GitHub Actions automatically handles:
+
+- Builds
+- Linting
+- Testing
+- Continuous Integration checks
 
 ---
 
@@ -132,20 +145,20 @@ Example:
 .
 ├── .github/
 │   └── workflows/
-│       └── go.yaml        # GitHub Actions CI pipeline
-├── commands.go            # CLI command handling
-├── main.go                # Application entry point
-├── todo.go                # Core todo logic
-├── storage.go             # JSON persistence logic
-├── todos.json             # Data storage file
-├── go.mod                 # Module definition
-├── go.sum                 # Dependencies checksum
-└── README.md              # Project documentation
+│       └── go.yaml
+├── commands.go
+├── main.go
+├── storage.go
+├── todo.go
+├── todos.json
+├── go.mod
+├── go.sum
+├── ui.go
+└── README.md
 ```
 
 ---
 
-
 ## License
 
-This project is open-source and available under the MIT License.
+Licensed under the MIT License.
